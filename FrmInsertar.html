@@ -1,0 +1,59 @@
+<?php
+session_start();
+$lista=$_SESSION['lista'];
+?>
+<html>
+    <head>
+        <title>Insertar Empleado</title>
+    </head>
+    <script>
+        function Regresar(){
+            document.form.action="../php/EmpleadoControlador.php";
+            document.form.method="GET";
+            document.form.op.value="2";
+            document.form.submit();
+        }
+        function eliminar(codigo){
+            document.form.action="../php/EmpleadoControlador.php";
+            document.form.method="GET";
+            document.form.op.value="3";
+            document.form.cod.value=codigo;
+            document.form.submit();
+        }
+    </script>
+    
+    <body>
+    <center>
+        <form name="form"  action="../php/EmpleadoControlador.php"  method="GET">
+            <input type="hidden" name="op">
+            <input type="hidden" name="cod">
+            
+          
+            <table border="1">
+                <tr> 
+                <td>Codigo:</td> 
+                <td>Nombre: </td>
+                <td>Apellido :</td>
+                </tr>
+                <?php 
+                foreach($lista as $reg){
+                    ?>
+                <tr> 
+                 
+                <td><?php echo $reg['CODEMPLE']; ?></td> 
+                <td><?php echo $reg['NOMBEMPLE']; ?> </td>
+                <td><?php echo $reg['APELLIEMPLE'];  ?></td>
+                <td><a href="javascript:eliminar('<?php echo $reg['CODEMPLE']; ?>')">ELIMINAR</a></td>
+                </tr>
+                <?php } ?>
+            </table>  
+            <table>
+                        <tr><td>
+                                <button  onclick="Regresar()" >Regresar</button>
+                    </td></tr>
+            </table>
+         
+           </form>
+    </center>
+    </body>
+</html>

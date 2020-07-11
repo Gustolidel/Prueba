@@ -8,13 +8,13 @@ $lista=$_SESSION['lista'];
     </head>
     <script>
         function Regresar(){
-            document.form.action="../php/EmpleadoControlador.php";
+            document.form.action="EmpleadoControlador.php";
             document.form.method="GET";
             document.form.op.value="2";
             document.form.submit();
         }
         function eliminar(codigo){
-            document.form.action="../php/EmpleadoControlador.php";
+            document.form.action="EmpleadoControlador.php";
             document.form.method="GET";
             document.form.op.value="3";
             document.form.cod.value=codigo;
@@ -24,7 +24,7 @@ $lista=$_SESSION['lista'];
     
     <body>
     <center>
-        <form name="form"  action="../php/EmpleadoControlador.php"  method="GET">
+        <form name="form"  action="EmpleadoControlador.php"  method="GET">
             <input type="hidden" name="op">
             <input type="hidden" name="cod">
             

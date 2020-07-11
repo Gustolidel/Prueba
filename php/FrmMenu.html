@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <script>
+        function Listar(){
+            document.form.action="../php/EmpleadoControlador.php";
+            document.form.method="GET";
+            document.form.op.value="1";
+            document.form.submit();
+        }
+        </script>
+    </head>
+    <body>
+        <form name="form">
+            <input type="hidden" name="op">
+    <center>
+        <table>
+            <tr>
+                <td>
+                    <button onclick="Listar()">Listar Personas</button>
+                </td></tr>
+        </table>
+    </center>
+        </form>
+        </body>
+</html>
